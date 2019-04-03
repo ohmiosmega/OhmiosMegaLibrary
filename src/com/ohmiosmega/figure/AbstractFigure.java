@@ -103,4 +103,8 @@ public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> 
 	public synchronized long getId() {
 		return id;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }
