@@ -13,31 +13,21 @@ import com.ohmiosmega.persistence.DataUtilities;
 public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> {
 	protected long id;
 	protected float x, y, width, height;
-	protected AbstractFigure mainFigure;
 	protected Color color;
 
 	public AbstractFigure() {
 	}
 
 	public AbstractFigure(int x, int y, int width, int height) {
-		this(x, y, width, height, null, null);
+		this(x, y, width, height, null);
 	}
 
 	public AbstractFigure(int x, int y, int width, int height, Color color) {
-		this(x, y, width, height, color, null);
-	}
-
-	public AbstractFigure(int x, int y, int width, int height, AbstractFigure mainFigure) {
-		this(x, y, width, height, null, mainFigure);
-	}
-
-	public AbstractFigure(int x, int y, int width, int height, Color color, AbstractFigure mainFigure) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.color = color;
-		this.mainFigure = mainFigure;
 	}
 
 	public abstract void draw(Graphics g);
@@ -48,8 +38,7 @@ public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> 
 			return DataUtilities.joinBytes(DataUtilities.toBytes(this.id), DataUtilities.toBytes(this.x),
 					DataUtilities.toBytes(this.y), DataUtilities.toBytes(this.width),
 					DataUtilities.toBytes(this.height),
-					DataUtilities.toBytes(this.color == null ? (int) -1 : this.color.getRGB()),
-					DataUtilities.toBytes(this.mainFigure == null ? (long) -1 : this.mainFigure.id));
+					DataUtilities.toBytes(this.color == null ? (int) -1 : this.color.getRGB()));
 		}
 	}
 
@@ -67,9 +56,6 @@ public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> 
 				this.color = null;
 			else
 				this.color = new Color(color);
-			long mainFigureId = du.getLong();
-			if (mainFigureId == -1)
-				this.mainFigure = null;
 			return this;
 		}
 	}
@@ -112,14 +98,6 @@ public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> 
 
 	public synchronized void setColor(Color color) {
 		this.color = color;
-	}
-
-	public synchronized void setMainFigure(AbstractFigure mainFigure) {
-		this.mainFigure = mainFigure;
-	}
-
-	public synchronized AbstractFigure getMainFigure() {
-		return mainFigure;
 	}
 
 	public synchronized long getId() {
