@@ -2,7 +2,7 @@ package com.ohmiosmega.customlistener;
 
 import java.util.EventListener;
 
-import com.ohmiosmega.figure.Figure;
+import com.ohmiosmega.figure.AbstractFigure;
 
 /**
  * @author Andrés Felipe Chaparro Rosas
@@ -10,6 +10,6 @@ import com.ohmiosmega.figure.Figure;
  **/
 public interface FigureListener extends EventListener {
 
-	public void focus(Figure figure);
+	public void focus(AbstractFigure figure);
 
 }
