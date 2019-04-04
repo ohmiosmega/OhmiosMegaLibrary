@@ -3,8 +3,8 @@ package com.ohmiosmega.figure;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import com.ohmiosmega.persistence.DataBinRecorder;
-import com.ohmiosmega.persistence.DataUtilities;
+import com.ohmiosmega.persistence.bin.DataBinRecorder;
+import com.ohmiosmega.persistence.bin.DataUtilities;
 
 /**
  * @author Andrés Felipe Chaparro Rosas
@@ -59,6 +59,7 @@ public abstract class AbstractFigure implements DataBinRecorder<AbstractFigure> 
 			return this;
 		}
 	}
+
 
 	public synchronized float getX() {
 		return x;

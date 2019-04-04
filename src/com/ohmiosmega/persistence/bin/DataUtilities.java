@@ -1,4 +1,4 @@
-package com.ohmiosmega.persistence;
+package com.ohmiosmega.persistence.bin;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

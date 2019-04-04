@@ -1,4 +1,4 @@
-package com.ohmiosmega.persistence;
+package com.ohmiosmega.persistence.bin;
 /**
 * @author Andrés Felipe Chaparro Rosas
 * @date 30/03/2019
